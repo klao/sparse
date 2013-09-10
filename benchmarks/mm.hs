@@ -4,7 +4,7 @@ import Control.DeepSeq
 import Criterion.Main
 import Data.Array.Unboxed as A
 import Sparse.Matrix as M
-import Sparse.Matrix.Internal.Heap as Heap
+import Sparse.Matrix.Internal.NaiveHeap as Heap
 
 instance NFData (UArray i e)
 

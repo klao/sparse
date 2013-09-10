@@ -74,7 +74,7 @@ import Prelude hiding (head, last, null)
 import Sparse.Matrix.Internal.Fusion as Fusion
 import Sparse.Matrix.Internal.Key
 import Sparse.Matrix.Internal.Array as I
-import Sparse.Matrix.Internal.Heap as Heap hiding (head)
+import Sparse.Matrix.Internal.NaiveHeap as Heap hiding (head)
 import Text.Read
 
 -- import Debug.Trace
@@ -432,7 +432,7 @@ multiplyWith times make x0 y0 = case compare (size x0) 1 of
 
     mfby Nothing xs = xs
     mfby xs Nothing = xs
-    mfby (Just x) (Just y) = Just (fby x y)
+    mfby (Just x) (Just y) = Just (mix x y)
 
     lo (Mat _ xs ys _) = Key (U.head xs) (U.head ys)
 
